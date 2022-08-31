@@ -1,12 +1,32 @@
 INFORME FINAL DEL PROYECTO DEL CURSO DE CIENCIA DE DATOS APLICADA
 
-INTRODUCCION
-
-En el sector inmobiliario el alquiler de vivienda es un sector comercial que se encentra en continuo crecimiento. Este sector ha tomado ventaja de los avances tecnologicos para promover y gestionar el alqiler de viviendas utilizando tecnologia de informacion y comunicacion.
-
-El beneficio de los avances tecnologicos ha sido en dos vias, por un lado, los arrendatarios pueden ubicar, evaluar y seleccionar viviendas publicadas en diferentes espacios digitales. Por otro lado, los arrendadores pueden promover sus viviendas de una manera mas efectiva.
-
-Este nuevo ambiente de promocion de viviendas ha generado un cumulo de informacion, que aunado con informacion adicional a los datos de viviendas (amenidades disponibles, seguridad, costo de vida del area), pueden ser ampliamente aprovechado por los mismos arrendatarios. Ya que con base en datos disponibles, un arrendatario puede estimar un precio competitivo, dependiendo de las caracteristicas de su vivienda, y la ubicacion de la misma, para lograr...
-
-
 PROBLEMA COMERCIAL
+
+El uso de clusters para agrupar vecindarios con localidades similares aparenta ser de gran utilidad, sin embargo, 
+al implementar el algoritmo e k-means, manejando diferente numero de clusters, se observa un cluster predominante, 
+el cual agrupa un 67% de los vecindarios. Como se muestra en los datos siguientes, donde se realizo el proceso de 
+clustering con k=5, para los vecindarios de la ciudad de Central Toronto de Canada.  
+
+Cluster Labels
+0    143
+1      7
+2     11
+3      1
+4     54
+Name: PostalCode, dtype: int64
+
+El problema descrito, en el caso comercial de que un usuario/cliente deseara seleccionar un vecindario que corresponda 
+al cluster dominante, la diversidad de opciones no le permitiria discriminar de una forma favorable. Motivo por el cual, 
+se propone una funcionalidad que permita hacer multiples procesos de agrupamiento sobre un cluster seleccionado, 
+permitiendo asi incrementar el nivel de granularidad de analisis de informacion.
+
+En la presente propuesta, se plantea implementa un segundo proceso de clustering sobre el cluster con mayor elementos 
+(vecindarios), con la hipotesis que nos dara una sub-clasificacion que permita reagrupar el cluster objetivo identificando 
+nuevos sub-grupos que le ofrezcan al cliente una reclasificacion que le permita realizar una mejor y/o mas rapida seleccion 
+de un vesindario de su preferencia.
+
+
+DATOS
+Para la realizacion de este proyecto, se utilizaran los datos de localizacion de la ciudad de Central Toronto, de Toronto, 
+Canada. Especificamente, se utilizaran las coordenadas de los vecindarios de dicha ciudad. Asi mismo, se aprovechar la datos 
+de ubicación de Foursquare para obtener los negocios (venues) que se encuentran a un radio de 500 metros del centro del vecindario.
